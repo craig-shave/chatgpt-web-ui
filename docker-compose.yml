@@ -1,0 +1,8 @@
+version: '3'
+services:
+  ask:
+    container_name: ask
+    build: .
+    restart: unless-stopped
+    environment:
+      OPENAI_KEY: here
