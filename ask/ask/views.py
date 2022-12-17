@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import openai
+import os
 
 def ajax(request):
     message = request.GET["message"]
-    openai.api_key = "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"
+    openai.api_key = os.env("OPENAI_KEY")
     response = openai.Completion.create(model="text-davinci-003", prompt=message, temperature=0, max_tokens=4000)
     print(response)
     return HttpResponse(response["choices"])
