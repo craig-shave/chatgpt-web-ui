@@ -1,1 +1,1 @@
-docker-compose up --build
+screen -dmS ask docker-compose up --build
