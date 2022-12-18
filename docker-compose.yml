@@ -4,5 +4,7 @@ services:
     container_name: ask
     build: .
     restart: unless-stopped
+    ports:
+      - 8222:8222
     environment:
       OPENAI_KEY: here
