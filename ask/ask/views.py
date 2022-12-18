@@ -70,7 +70,7 @@ def index(request):
                     if (sentenceArray[sentenceIndex] == "\\n") {
                         document.getElementById("chat-window").innerHTML += "<br>";
                         sentenceIndex++;
-                    } else if (sentenceArray[sentenceIndex] == " " && noMoreNbsp = 0) {
+                    } else if (sentenceArray[sentenceIndex] == " " && noMoreNbsp == 0) {
                         document.getElementById("chat-window").innerHTML += "&nbsp";
                         sentenceIndex++;
                     } else {
