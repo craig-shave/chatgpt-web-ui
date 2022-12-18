@@ -70,8 +70,12 @@ def index(request):
                     if (sentenceArray[sentenceIndex] == "\\n") {
                         document.getElementById("chat-window").innerHTML += "<br>";
                         sentenceIndex++;
-                    } else if (sentenceArray[sentenceIndex] == " " && noMoreNbsp == 0) {
-                        document.getElementById("chat-window").innerHTML += "&nbsp";
+                    } else if (sentenceArray[sentenceIndex] == " ") {
+                        if (noMoreNbsp == 0) {
+                            document.getElementById("chat-window").innerHTML += "&nbsp";
+                        } else {
+                            document.getElementById("chat-window").innerHTML += " ";
+                        }
                         sentenceIndex++;
                     } else {
                         document.getElementById("chat-window").innerHTML += sentenceArray[sentenceIndex];
