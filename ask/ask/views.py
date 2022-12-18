@@ -5,7 +5,7 @@ import os
 
 def ajax(request):
     message = request.GET["message"]
-    openai.api_key = os.env("OPENAI_KEY")
+    openai.api_key = os.getenv("OPENAI_KEY")
     response = openai.Completion.create(model="text-davinci-003", prompt=message, temperature=0, max_tokens=4000)
     print(response)
     return HttpResponse(response["choices"])
@@ -64,17 +64,19 @@ def index(request):
                 var sentenceArray = sentence.split('');
                 var sentenceLength = sentenceArray.length;
                 var sentenceIndex = 0;
+                var noMoreNbsp = 0;
                 var sentenceInterval = setInterval(function() {
                 if (sentenceIndex < sentenceLength) {
                     if (sentenceArray[sentenceIndex] == "\\n") {
                         document.getElementById("chat-window").innerHTML += "<br>";
                         sentenceIndex++;
-                    } else if (sentenceArray[sentenceIndex] == " ") {
+                    } else if (sentenceArray[sentenceIndex] == " " && noMoreNbsp = 0) {
                         document.getElementById("chat-window").innerHTML += "&nbsp";
                         sentenceIndex++;
                     } else {
                         document.getElementById("chat-window").innerHTML += sentenceArray[sentenceIndex];
                         sentenceIndex++;
+                        noMoreNbsp = 1;
                     }
                 } else {
 

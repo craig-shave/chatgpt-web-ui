@@ -7,4 +7,5 @@ services:
     ports:
       - 8222:8222
     environment:
-      OPENAI_KEY: here
+      OPENAI_KEY: ${OPENAI_KEY}
+      DOMAIN: ${DOMAIN}
