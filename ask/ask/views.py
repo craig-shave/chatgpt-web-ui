@@ -64,11 +64,12 @@ def index(request):
                 var sentenceArray = sentence.split('');
                 var sentenceLength = sentenceArray.length;
                 var sentenceIndex = 0;
-                var noMoreNbsp = 0;
+                var newLineTriggered = 0;
                 var sentenceInterval = setInterval(function() {
                 if (sentenceIndex < sentenceLength) {
                     if (sentenceArray[sentenceIndex] == "\\n") {
                         document.getElementById("chat-window").innerHTML += "<br>";
+                        noMoreNbsp = 0;
                         sentenceIndex++;
                     } else if (sentenceArray[sentenceIndex] == " ") {
                         if (noMoreNbsp == 1) {
