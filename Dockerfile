@@ -8,6 +8,7 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get autoremove --purge -y
 RUN mkdir -p /code/ask
 COPY ask/ /code/ask
+EXPOSE 8222
 COPY entrypoint.sh /code/entrypoint.sh
 RUN chmod +x /code/entrypoint.sh
 ENTRYPOINT ["/code/entrypoint.sh"]
