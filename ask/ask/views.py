@@ -71,10 +71,10 @@ def index(request):
                         document.getElementById("chat-window").innerHTML += "<br>";
                         sentenceIndex++;
                     } else if (sentenceArray[sentenceIndex] == " ") {
-                        if (noMoreNbsp == 0) {
-                            document.getElementById("chat-window").innerHTML += "&nbsp";
-                        } else {
+                        if (noMoreNbsp == 1) {
                             document.getElementById("chat-window").innerHTML += " ";
+                        } else {
+                            document.getElementById("chat-window").innerHTML += "&nbsp";
                         }
                         sentenceIndex++;
                     } else {
